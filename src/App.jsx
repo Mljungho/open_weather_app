@@ -6,21 +6,29 @@ import axios from "axios";
 const App = () => {
 
   const [geolocation, setGeoLocation] = useState({});
-
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition(async (position) => {
-
-        setGeoLocation(position.coords)
-
-        const latitude = geolocation.latitude;
-        const longitude = geolocation.longitude;
+  
+  
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      
+      setGeoLocation(position.coords)
+      
+      const latitude = position.latitude
+      const longitude =  position.longitude
 
         let locationResponse = await axios.get(
-          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={placeholder}`
+          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b294071f86eb4faf999e3e553b2cb241`
         );
 
-        let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={placeholder}`
+        let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=b48b627fe35ad88025944c93d440d1e8`
         );
+
+        let weatherInfo = {
+          city: locationResponse.data.results[0].components.postal_city,
+          temp: weatherResponse.data.current.temp
+        }
+
+      
         
       })
 
@@ -28,7 +36,7 @@ const App = () => {
     
     []}
     
-    ,)
+    )
 
   return (
     <div data-cy="weather-display">
