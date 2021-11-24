@@ -13,11 +13,11 @@ class Test extends Component {
       this.setState({ geolocation: position.coords });
 
       let locationResponse = await axios.get(
-        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b294071f86eb4faf999e3e553b2cb241`
+        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={placeholder}`
       );
 
       let weatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=b48b627fe35ad88025944c93d440d1e8`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={placeholder}`
       );
 
       let weatherInfo = {
