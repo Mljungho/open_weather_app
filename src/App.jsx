@@ -4,24 +4,31 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const App = () => {
+
   const [geolocation, setGeoLocation] = useState({});
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      setGeoLocation(position.coords);
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
 
-      const latitude = geolocation.latitude;
-      const longitude = geolocation.longitude;
+        setGeoLocation(position.coords)
 
-      let locationResponse = await axios.get(
-        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={placeholder}`
-      );
+        const latitude = geolocation.latitude;
+        const longitude = geolocation.longitude;
 
-      let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={placeholder}`
-      );
+        let locationResponse = await axios.get(
+          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={placeholder}`
+        );
+
+        let weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={placeholder}`
+        );
+        
+      })
+
         debugger
-    )
-  }, []);
+    
+    []}
+    
+    ,)
 
   return (
     <div data-cy="weather-display">
@@ -29,6 +36,6 @@ const App = () => {
       <div data-cy="location">Virum</div>
     </div>
   );
-};
+}
 
 export default App;
