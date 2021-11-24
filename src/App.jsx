@@ -1,11 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [geolocation, setGeolocation] = useState({});
+  const [geolocation, setGeoLocation] = useState({});
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {
-      setGeolLocation({ geolocation: position.coords });
+      setGeoLocation(position.coords);
+
+      const latitude = geolocation.latitude;
+      const longitude = geolocation.longitude;
     });
   }, []);
 
