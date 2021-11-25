@@ -23,8 +23,8 @@ describe("weather info for user's location", () => {
 
     cy.get("[data-cy=weather-display]").within(() => {
       cy.get("[data-cy=temp]").should("contain", "5.53");
-      cy.get("[data-cy=location]").should("contain", "Virum");
-      //cy.get("[data-cy=wind_speed]").should("contain", "3.09");
+      cy.get("[data-cy=location]").should("contain", "Gothenburg");
+      cy.get("[data-cy=wind_speed]").should("contain", "3.09");
     });
   });
 });
