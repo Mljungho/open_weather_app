@@ -14,11 +14,11 @@ const App = () => {
       const longitude = position.longitude;
 
       let locationResponse = await axios.get(
-        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={placeholder}`
+        `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key={process.env.REACT_APP_OPEN_CAGE_API_KEY}`
       );
 
       let weatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={placeholder}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid={process.env.REACT_APP_OPEN_WEATHER_API_KEY}`
       );
 
       let weatherInfo = {
