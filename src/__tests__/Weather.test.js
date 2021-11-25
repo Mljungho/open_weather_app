@@ -20,8 +20,8 @@ describe("App.jsx", () => {
     // });
     axiosSpy = jest
       .spyOn(axios, "get")
+      .mockResolvedValueOnce(openCageResponse)
       .mockResolvedValueOnce(openWeatherResponse)
-      .mockResolvedValueOnce(openCageResponse);
 
     render(<App />);
   });
@@ -30,7 +30,7 @@ describe("App.jsx", () => {
   //     expect(getPositionSpy).toHaveBeenCalledTimes(1);
   // });
 
-  it("is expected to have 2 axios calls", () => {
+  it.only("is expected to have 2 axios calls", () => {
       expect(axiosSpy).toHaveBennCalledTimes(2);
   });
 
