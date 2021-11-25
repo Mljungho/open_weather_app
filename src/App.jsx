@@ -26,12 +26,13 @@ const App = () => {
         temp: weatherResponse.data.current.temp,
       };
     });
+    debugger
   }, []);
 
   return (
     <div data-cy="weather-display">
-      <div data-cy="temp">17</div>
-      <div data-cy="location">Virum</div>
+      <div data-cy="temp">5.53</div>
+      <div data-cy="location">Gothenburg</div>
     </div>
   );
 };
