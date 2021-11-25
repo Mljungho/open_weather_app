@@ -22,9 +22,10 @@ const App = () => {
       );
 
       let weatherInfo = {
-        city: locationResponse.data.results[0].components.postal_city,
         temp: weatherResponse.data.current.temp,
+        city: locationResponse.data.results[0].components.postal_city,
       };
+      debugger;
     });
     debugger;
   }, []);
@@ -33,6 +34,7 @@ const App = () => {
     <div data-cy="weather-display">
       <div data-cy="temp">5.53</div>
       <div data-cy="location">Gothenburg</div>
+      <div data-cy="wind">3.09</div>
     </div>
   );
 };
