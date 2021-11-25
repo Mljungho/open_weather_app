@@ -27,12 +27,7 @@ const App = () => {
           city: locationResponse.data.results[0].components.postal_city,
           temp: weatherResponse.data.current.temp
         }
-
-      
-        
       })
-
-        debugger
     
     []}
     
