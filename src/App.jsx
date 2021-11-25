@@ -26,7 +26,7 @@ const App = () => {
         temp: weatherResponse.data.current.temp,
       };
     });
-    debugger
+    debugger;
   }, []);
 
   return (
